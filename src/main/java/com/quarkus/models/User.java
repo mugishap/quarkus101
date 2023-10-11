@@ -1,10 +1,13 @@
-package com.quarkus;
-
+package com.quarkus.models;
 
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.UUID;
+
 
 /**
  * Example JPA entity.
@@ -25,10 +28,18 @@ import java.util.UUID;
  * }
  */
 @Entity
-public class MyEntity {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public UUID id;
+    private UUID id;
 
-    public String field;
+    private String names;
+    private String email;
+    private String telephone;
+    private String password;
+
 }
